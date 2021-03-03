@@ -344,6 +344,10 @@ C:\src\FlappyBirdDemo\FlappyBirdDemo.Web\obj\Debug\netstandard2.1\FlappyBirdDemo
 C:\src\FlappyBirdDemo\FlappyBirdDemo.Web\obj\Debug\netstandard2.1\FlappyBirdDemo.Web.pdb
 C:\src\FlappyBirdDemo\FlappyBirdDemo.Web\obj\Debug\netstandard2.1\RazorDeclaration\Components\GameContainer.razor.g.cs
 C:\src\FlappyBirdDemo\FlappyBirdDemo.Web\obj\Debug\netstandard2.1\Razor\Components\GameContainer.razor.g.cs
-C:\src\FlappyBirdDemo\FlappyBirdDemo.Web\obj\Debug\netstandard2.1\integrity\luzsA8UEKfiF6W8af6nm0SmLApERmYa3TNBejkKjarg=.hash
-C:\src\FlappyBirdDemo\FlappyBirdDemo.Web\obj\Debug\netstandard2.1\integrity\fNttJQhyv4CY4FmFzPCluggF2MX5el7uhUsIIqwcBL8=.hash
-C:\src\FlappyBirdDemo\FlappyBirdDemo.Web\obj\Debug\netstandard2.1\integrity\8rWFQWieq3HR3Etjhg6kKmHZt8svdE6UCJ9-cR3X538=.hash
+C:\src\FlappyBirdDemo\FlappyBirdDemo.Web\obj\Debug\netstandard2.1\RazorDeclaration\Components\Bird.razor.g.cs
+C:\src\FlappyBirdDemo\FlappyBirdDemo.Web\obj\Debug\netstandard2.1\RazorDeclaration\Components\Pipe.razor.g.cs
+C:\src\FlappyBirdDemo\FlappyBirdDemo.Web\obj\Debug\netstandard2.1\Razor\Components\Bird.razor.g.cs
+C:\src\FlappyBirdDemo\FlappyBirdDemo.Web\obj\Debug\netstandard2.1\Razor\Components\Pipe.razor.g.cs
+C:\src\FlappyBirdDemo\FlappyBirdDemo.Web\obj\Debug\netstandard2.1\integrity\dO0HBRinry7xKlqVcYz3w_JN5d48oE2LUCJqjfHyJ-g=.hash
+C:\src\FlappyBirdDemo\FlappyBirdDemo.Web\obj\Debug\netstandard2.1\integrity\nlCauudOvbVJWRLvQwPnUOXuuq12sW47V6yN9tHuF7w=.hash
+C:\src\FlappyBirdDemo\FlappyBirdDemo.Web\obj\Debug\netstandard2.1\integrity\22VIGGlMl4fwpfMR102ht-OOAnB3ZKaQwMFrSqTEgGs=.hash

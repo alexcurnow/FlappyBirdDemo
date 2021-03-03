@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 
 namespace FlappyBirdDemo.Web.Models
 {
-    public class GameManager : INotifyPropertyChanged
+    public class GameManager
     {
         private readonly int _gravity = 2;
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event EventHandler MainLoopCompleted;
 
-        public BirdModel Bird { get; set; }
-        public bool IsRunning { get; set; } = false;
+        public BirdModel Bird { get; private set; }
+        public List<PipeModel> Pipes { get; private set; }
+        public bool IsRunning { get; private set; } = false;
 
         public GameManager()
         {
             Bird = new BirdModel();
+            Pipes = new List<PipeModel>();
         }
 
         public async void MainLoop()
@@ -26,15 +28,11 @@ namespace FlappyBirdDemo.Web.Models
 
             while (IsRunning)
             {
-                Bird.Fall(2);
+                MoveObjects();
+                CheckForCollisions();
+                ManagePipes();
 
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Bird)));
-
-                if (Bird.DistanceFromGound <= 0)
-                {
-                    GameOver();
-                }
-
+                MainLoopCompleted?.Invoke(this, EventArgs.Empty);
                 await Task.Delay(20);
             }
         }
@@ -45,8 +43,52 @@ namespace FlappyBirdDemo.Web.Models
             {
 
                 Bird = new BirdModel();
+                Pipes = new List<PipeModel>();
                 MainLoop();
 
+            }
+        }
+
+        public void Jump()
+        {
+            if (IsRunning)
+            {
+                Bird.Jump();
+            }
+        }
+
+        public void CheckForCollisions()
+        {
+            if (Bird.IsOnGround())
+                GameOver();
+
+            var centeredPipe = Pipes.FirstOrDefault(p => p.IsCentered());
+
+            if (centeredPipe != null)
+            {
+                bool hasCollidedWithBottom = Bird.DistanceFromGound < centeredPipe.GapBottom - 150;
+                bool hasCollidedWithTop = Bird.DistanceFromGound + 45 > centeredPipe.GapTop - 150;
+
+                if (hasCollidedWithBottom || hasCollidedWithTop)
+                    GameOver();
+            }
+        }
+
+        public void ManagePipes()
+        {
+            if (!Pipes.Any() || Pipes.Last().DistanceFromLeft <= 250)
+                Pipes.Add(new PipeModel());
+
+            if (Pipes.First().IsOffScreen())
+                Pipes.Remove(Pipes.First());
+        }
+
+        public void MoveObjects()
+        {
+            Bird.Fall(_gravity);
+            foreach (var pipe in Pipes)
+            {
+                pipe.Move();
             }
         }
 
